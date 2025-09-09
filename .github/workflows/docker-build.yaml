@@ -28,7 +28,7 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/working-demo:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/working-docker:latest
 
       - name: List Images
         run: docker images
