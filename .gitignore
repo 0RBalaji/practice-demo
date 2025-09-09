@@ -1,0 +1,8 @@
+__pycacha__/
+*.pyc
+*.pyo
+*.pyd
+
+.env
+
+*.log
