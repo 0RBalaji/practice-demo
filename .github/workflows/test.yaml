@@ -1,9 +1,10 @@
 name: Test Docker Compose
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Build Docker Image"]
+    types:
+      - completed
 
 jobs:
   test:
@@ -41,4 +42,4 @@ jobs:
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/working-docker:latest
         
       - name: Run app and test DB connection
-        run: docker run --rm --net host ${{ secrets.DOCKER_USERNAME }}/working-docker:latest}}
+        run: docker run --rm --network host ${{ secrets.DOCKER_USERNAME }}/working-docker:latest
